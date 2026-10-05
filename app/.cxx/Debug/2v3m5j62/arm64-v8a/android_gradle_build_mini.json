@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "/Users/specialdog/Documents/Meu Projetos/Miner/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/specialdog/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/specialdog/Documents/Meu Projetos/Miner/app/.cxx/Debug/2v3m5j62/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/specialdog/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/specialdog/Documents/Meu Projetos/Miner/app/.cxx/Debug/2v3m5j62/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "droidlottery_native::@6890427a1f51a3e7e1df": {
+      "artifactName": "droidlottery_native",
+      "abi": "arm64-v8a",
+      "output": "/Users/specialdog/Documents/Meu Projetos/Miner/app/build/intermediates/cxx/Debug/2v3m5j62/obj/arm64-v8a/libdroidlottery_native.so",
+      "runtimeFiles": []
+    }
+  }
+}

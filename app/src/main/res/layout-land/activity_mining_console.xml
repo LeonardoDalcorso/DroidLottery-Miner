@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/consoleRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/console_background"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.25"
+        android:background="@color/console_panel"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DROIDLOTTERY // LIVE CONSOLE"
+            android:textColor="@color/console_cyan"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="CURRENT HASHRATE"
+            android:textColor="@color/console_cyan"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/consoleHashrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 H/s"
+            android:textColor="@color/console_lime"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+        <com.droidlottery.miner.ui.HashrateChartView
+            android:id="@+id/consoleChart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <Space android:layout_width="12dp" android:layout_height="1dp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/consoleState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/console_cyan"
+            android:padding="8dp"
+            android:text="STOPPED"
+            android:textColor="@color/console_background"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/consoleDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@color/console_panel"
+            android:orientation="horizontal"
+            android:padding="14dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JOBS" android:textColor="@color/console_cyan" android:textSize="11sp" />
+                <TextView android:id="@+id/consoleJobs" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@android:color/white" android:textSize="25sp" android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SHARES" android:textColor="@color/console_cyan" android:textSize="11sp" />
+                <TextView android:id="@+id/consoleAccepted" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@android:color/white" android:textSize="25sp" android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CANDIDATES" android:textColor="@color/console_cyan" android:textSize="11sp" />
+                <TextView android:id="@+id/consoleCandidates" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textColor="@android:color/white" android:textSize="25sp" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/consolePool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@color/console_panel"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="14dp"
+            android:textColor="@color/console_lime"
+            android:textSize="12sp" />
+    </LinearLayout>
+</LinearLayout>

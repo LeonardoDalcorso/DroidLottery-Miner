@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "pools": [
+    {
+      "id": "publicpool-btc-solo",
+      "name": "Public Pool BTC Solo",
+      "coin": "BTC",
+      "algorithm": "SHA256D",
+      "mode": "LOTTERY_SOLO",
+      "provider": "PUBLIC_POOL",
+      "host": "public-pool.io",
+      "ports": [3333],
+      "tls": false,
+      "usernamePattern": "bc1q03admc0edr4wqrysdc6mvzksqldh44mna2h2fq.droid01",
+      "passwordDefault": "x",
+      "rewardType": "EXTERNAL_WALLET"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/specialdog/Documents/Meu Projetos/Miner/app/.cxx/Debug/2v3m5j62/arm64-v8a",
+  "command": "/Users/specialdog/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --sysroot=/Users/specialdog/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Ddroidlottery_native_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -o CMakeFiles/droidlottery_native.dir/native_miner.cpp.o -c \"/Users/specialdog/Documents/Meu Projetos/Miner/app/src/main/cpp/native_miner.cpp\"",
+  "file": "/Users/specialdog/Documents/Meu Projetos/Miner/app/src/main/cpp/native_miner.cpp"
+}
+]

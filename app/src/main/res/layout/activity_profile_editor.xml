@@ -1,0 +1,48 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dashboard_background"
+    android:fitsSystemWindows="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MINING CONFIGURATION" android:textColor="@color/dashboard_mint" android:textSize="13sp" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Configure the pool, your public payout address, and CPU allocation." android:textColor="@android:color/white" android:textSize="18sp" />
+
+        <Button android:id="@+id/openGuideButton" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="16dp" android:text="HOW TO CONFIGURE SOLO MINING" />
+
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:hint="Profile name" app:helperText="A name shown only on this device.">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/nameInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="POOL CONNECTION" android:textColor="@color/dashboard_mint" android:textSize="12sp" android:textStyle="bold" />
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Pool server (host)" app:helperText="Example: public-pool.io">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/hostInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="textUri" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Pool port" app:helperText="Use the port published by the pool; Solo BTC default is 3333.">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/portInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <CheckBox android:id="@+id/tlsInput" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="Use TLS encrypted connection" android:textColor="@android:color/white" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="IDENTIFICATION &amp; PAYOUT" android:textColor="@color/dashboard_mint" android:textSize="12sp" android:textStyle="bold" />
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Worker username" app:helperText="For solo mining, normally your public wallet address followed by .workerName.">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/workerInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Public BTC payout address" app:helperText="Public address only. Never paste a seed phrase or private key.">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/walletInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="PERFORMANCE" android:textColor="@color/dashboard_mint" android:textSize="12sp" android:textStyle="bold" />
+        <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="CPU threads" app:helperText="Default is all available cores. Lower it to reduce heat and battery use.">
+            <com.google.android.material.textfield.TextInputEditText android:id="@+id/cpuThreadsInput" android:layout_width="match_parent" android:layout_height="wrap_content" android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="SHA-256d needs very little RAM; allocating extra memory will not increase hashrate." android:textColor="@color/dashboard_muted" android:textSize="12sp" />
+
+        <Button android:id="@+id/openDonateButton" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="48dp" android:layout_marginTop="18dp" android:text="DONATE BTC" />
+        <Button android:id="@+id/saveProfileButton" android:layout_width="match_parent" android:layout_height="54dp" android:layout_marginTop="24dp" android:text="SAVE CONFIGURATION" />
+    </LinearLayout>
+</ScrollView>

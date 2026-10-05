@@ -1,0 +1,3 @@
+/Users/specialdog/Documents/Meu Projetos/Miner/app/.cxx/Debug/2v3m5j62/x86/CMakeFiles/droidlottery_native.dir
+/Users/specialdog/Documents/Meu Projetos/Miner/app/.cxx/Debug/2v3m5j62/x86/CMakeFiles/edit_cache.dir
+/Users/specialdog/Documents/Meu Projetos/Miner/app/.cxx/Debug/2v3m5j62/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dashboard_background"
+    android:orientation="horizontal"
+    android:padding="14dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.15"
+        app:cardBackgroundColor="@color/dashboard_card"
+        app:cardCornerRadius="18dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DROIDLOTTERY • LIVE HASHRATE" android:textColor="@color/dashboard_mint" android:textSize="12sp" android:textStyle="bold" />
+            <TextView android:id="@+id/hashrateText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0 H/s" android:textColor="@android:color/white" android:textSize="32sp" android:textStyle="bold" />
+            <com.droidlottery.miner.ui.HashrateChartView android:id="@+id/hashrateChart" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ACCEPTED" android:textColor="@color/dashboard_muted" android:textSize="11sp" />
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="JOBS" android:textColor="@color/dashboard_muted" android:textSize="11sp" />
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <TextView android:id="@+id/acceptedText" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="0" android:textColor="@color/dashboard_mint" android:textSize="24sp" android:textStyle="bold" />
+                <TextView android:id="@+id/jobsText" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="0" android:textColor="@android:color/white" android:textSize="24sp" android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <Space android:layout_width="12dp" android:layout_height="1dp" />
+
+    <LinearLayout android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical">
+        <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="2" android:ellipsize="end" android:textColor="@android:color/white" android:textSize="15sp" android:textStyle="bold" />
+        <TextView android:id="@+id/profileText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:maxLines="3" android:ellipsize="end" android:textColor="@color/dashboard_muted" android:textSize="12sp" />
+        <TextView android:id="@+id/rewardsText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:maxLines="2" android:ellipsize="end" android:textColor="@android:color/white" android:textSize="13sp" />
+        <TextView android:id="@+id/thermalText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:maxLines="1" android:ellipsize="end" android:textColor="@color/dashboard_muted" android:textSize="11sp" />
+        <Space android:layout_width="1dp" android:layout_height="0dp" android:layout_weight="1" />
+        <Button android:id="@+id/startStopButton" android:layout_width="match_parent" android:layout_height="44dp" android:text="START" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="44dp" android:layout_marginTop="6dp" android:orientation="horizontal">
+            <Button android:id="@+id/consoleButton" style="?attr/materialButtonOutlinedStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="CONSOLE" android:textSize="10sp" />
+            <Button android:id="@+id/historyButton" style="?attr/materialButtonOutlinedStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="HISTORY" android:textSize="10sp" />
+            <Button android:id="@+id/editProfileButton" style="?attr/materialButtonOutlinedStyle" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="CONFIG" android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

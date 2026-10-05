@@ -1,0 +1,89 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rootContent"
+    android:background="@color/dashboard_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DROIDLOTTERY"
+            android:textColor="@color/dashboard_mint"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Bitcoin Solo Miner"
+            android:textColor="@android:color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/dashboard_card"
+            app:cardCornerRadius="20dp"
+            app:strokeColor="@color/mining_green"
+            app:strokeWidth="1dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LIVE HASHRATE" android:textColor="@color/dashboard_muted" android:textSize="12sp" android:textStyle="bold" />
+                <TextView android:id="@+id/hashrateText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="0 H/s" android:textColor="@android:color/white" android:textSize="34sp" android:textStyle="bold" />
+                <com.droidlottery.miner.ui.HashrateChartView android:id="@+id/hashrateChart" android:layout_width="match_parent" android:layout_height="130dp" android:layout_marginTop="12dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/dashboard_card"
+            app:cardCornerRadius="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MINING STATUS" android:textColor="@color/dashboard_muted" android:textSize="12sp" android:textStyle="bold" />
+                <TextView android:id="@+id/statusText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="STOPPED • Not running" android:textColor="@android:color/white" android:textSize="16sp" />
+                <TextView android:id="@+id/profileText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textColor="@color/dashboard_muted" android:textSize="14sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" android:orientation="horizontal">
+            <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="116dp" android:layout_weight="1" app:cardBackgroundColor="@color/dashboard_card" app:cardCornerRadius="20dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ACCEPTED" android:textColor="@color/dashboard_muted" android:textSize="11sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/acceptedText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="0" android:textColor="@color/dashboard_mint" android:textSize="28sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <Space android:layout_width="12dp" android:layout_height="1dp" />
+            <com.google.android.material.card.MaterialCardView android:layout_width="0dp" android:layout_height="116dp" android:layout_weight="1" app:cardBackgroundColor="@color/dashboard_card" app:cardCornerRadius="20dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="JOBS" android:textColor="@color/dashboard_muted" android:textSize="11sp" android:textStyle="bold" />
+                    <TextView android:id="@+id/jobsText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="0" android:textColor="@android:color/white" android:textSize="28sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp" app:cardBackgroundColor="@color/dashboard_card" app:cardCornerRadius="20dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="REWARDS" android:textColor="@color/dashboard_muted" android:textSize="12sp" android:textStyle="bold" />
+                <TextView android:id="@+id/rewardsText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="No payout confirmed yet" android:textColor="@android:color/white" android:textSize="16sp" />
+                <TextView android:id="@+id/thermalText" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:textColor="@color/dashboard_muted" android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button android:id="@+id/startStopButton" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="22dp" android:text="START" />
+        <Button android:id="@+id/consoleButton" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="10dp" android:text="OPEN MINING CONSOLE" />
+        <Button android:id="@+id/historyButton" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="10dp" android:text="VIEW MINING HISTORY" />
+        <Button android:id="@+id/editProfileButton" style="?attr/materialButtonOutlinedStyle" android:layout_width="match_parent" android:layout_height="52dp" android:layout_marginTop="10dp" android:text="CONFIGURE PROFILE" />
+    </LinearLayout>
+</ScrollView>

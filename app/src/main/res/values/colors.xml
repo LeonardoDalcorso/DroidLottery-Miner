@@ -1,0 +1,13 @@
+<resources>
+    <color name="mining_green">#1B7F5A</color>
+    <color name="surface_dark">#10231D</color>
+    <color name="warm_amber">#E7A700</color>
+    <color name="dashboard_background">#081410</color>
+    <color name="dashboard_card">#12231D</color>
+    <color name="dashboard_mint">#37D691</color>
+    <color name="dashboard_muted">#B6C9C0</color>
+    <color name="console_background">#041116</color>
+    <color name="console_panel">#062A35</color>
+    <color name="console_cyan">#32DBF2</color>
+    <color name="console_lime">#DCFF63</color>
+</resources>

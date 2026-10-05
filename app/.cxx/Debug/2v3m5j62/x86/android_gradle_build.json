@@ -1,0 +1,38 @@
+{
+  "buildFiles": [
+    "/Users/specialdog/Documents/Meu Projetos/Miner/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/specialdog/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/specialdog/Documents/Meu Projetos/Miner/app/.cxx/Debug/2v3m5j62/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/specialdog/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/specialdog/Documents/Meu Projetos/Miner/app/.cxx/Debug/2v3m5j62/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "droidlottery_native::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "droidlottery_native",
+      "output": "/Users/specialdog/Documents/Meu Projetos/Miner/app/build/intermediates/cxx/Debug/2v3m5j62/obj/x86/libdroidlottery_native.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/specialdog/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/specialdog/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}
