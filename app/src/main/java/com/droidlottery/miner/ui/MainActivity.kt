@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
             runtime.acceptedShares > 0 -> "${runtime.acceptedShares} accepted share(s) • payout determined by the pool"
             else -> "No payout confirmed yet"
         }
-        findViewById<TextView>(R.id.thermalText).text = "Thermal protection: ${snapshot.thermalState} • Rejected: ${runtime.rejectedShares}"
+        findViewById<TextView>(R.id.thermalText).text = "Running: ${formatElapsed(runtime.startedAtMillis, runtime.running)} • Thermal: ${snapshot.thermalState} • Rejected: ${runtime.rejectedShares}"
         findViewById<Button>(R.id.startStopButton).text =
             if (runtime.running) "STOP" else "START"
     }
@@ -130,6 +130,12 @@ class MainActivity : AppCompatActivity() {
             val threads = PerformanceSettings(this@MainActivity).threadCount()
             findViewById<TextView>(R.id.profileText).text = "$name\n$coin • $algorithm • $mode\n$host:$port • $threads CPU threads"
         }
+    }
+
+    private fun formatElapsed(startedAtMillis: Long, running: Boolean): String {
+        if (!running || startedAtMillis <= 0) return "00:00:00"
+        val seconds = ((System.currentTimeMillis() - startedAtMillis) / 1_000).coerceAtLeast(0)
+        return "%02d:%02d:%02d".format(seconds / 3_600, seconds % 3_600 / 60, seconds % 60)
     }
 
     private companion object { const val NOTIFICATION_PERMISSION_REQUEST = 100 }

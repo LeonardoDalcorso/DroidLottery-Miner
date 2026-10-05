@@ -13,6 +13,7 @@ data class MiningRuntimeState(
     val rejectedShares: Long,
     val blockCandidates: Long,
     val hashrate: String,
+    val startedAtMillis: Long,
 )
 
 /** A small observable-by-polling state store shared by the foreground service and UI. */
@@ -28,6 +29,7 @@ class MiningRuntimeStore(private val context: Context) {
         rejectedShares = preferences.getLong("rejected", 0),
         blockCandidates = preferences.getLong("candidates", 0),
         hashrate = preferences.getString("hashrate", "0 H/s") ?: "0 H/s",
+        startedAtMillis = preferences.getLong("started_at", 0),
     )
 
     fun readHashrateHistory(): List<Float> = preferences.getString("hashrate_history", "")
@@ -46,6 +48,7 @@ class MiningRuntimeStore(private val context: Context) {
         blockCandidates: Long = read().blockCandidates,
         hashrate: String = read().hashrate,
         hashrateValue: Double? = null,
+        startedAtMillis: Long = read().startedAtMillis,
         event: String? = null,
     ) {
         val editor = preferences.edit()
@@ -57,6 +60,7 @@ class MiningRuntimeStore(private val context: Context) {
             .putLong("rejected", rejectedShares)
             .putLong("candidates", blockCandidates)
             .putString("hashrate", hashrate)
+            .putLong("started_at", startedAtMillis)
         hashrateValue?.let { value ->
             val samples = (readHashrateHistory() + value.toFloat()).takeLast(MAX_SAMPLES)
             editor.putString("hashrate_history", samples.joinToString(","))

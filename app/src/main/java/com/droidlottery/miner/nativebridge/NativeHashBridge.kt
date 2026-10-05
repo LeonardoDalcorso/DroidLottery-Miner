@@ -1,8 +1,18 @@
 package com.droidlottery.miner.nativebridge
 
-/** JNI benchmark primitive. It does not connect to pools or submit shares. */
+/** JNI SHA-256d worker. Network and share submission remain in Kotlin. */
 object NativeHashBridge {
-    init { System.loadLibrary("droidlottery_native") }
+    private val available: Boolean = runCatching { System.loadLibrary("droidlottery_native") }.isSuccess
 
-    external fun benchmark(iterations: Int): Long
+    /** Returns a nonce, -1 when no hash meets the target, or null if the native library is unavailable. */
+    fun findShare(header: ByteArray, startNonce: Long, stride: Int, count: Int, target: ByteArray): Long? =
+        if (available) nativeFindShare(header, startNonce, stride, count, target) else null
+
+    private external fun nativeFindShare(
+        header: ByteArray,
+        startNonce: Long,
+        stride: Int,
+        count: Int,
+        target: ByteArray,
+    ): Long
 }

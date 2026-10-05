@@ -1,6 +1,7 @@
 package com.droidlottery.miner.mining.engine
 
 import com.droidlottery.miner.stratum.model.StratumJob
+import com.droidlottery.miner.nativebridge.NativeHashBridge
 import java.math.BigDecimal
 import java.math.BigInteger
 import java.math.RoundingMode
@@ -58,6 +59,35 @@ class Sha256dEngine(
             var localHashes = 0L
             val digest = MessageDigest.getInstance("SHA-256")
             while (active.get() && generation.get() == jobGeneration) {
+                val nativeNonce = NativeHashBridge.findShare(
+                    header = header,
+                    startNonce = nonce,
+                    stride = workers,
+                    count = HASH_BATCH_SIZE.toInt(),
+                    target = work.shareTarget,
+                )
+                if (nativeNonce != null) {
+                    localHashes += HASH_BATCH_SIZE
+                    if (nativeNonce >= 0) {
+                        val candidateHeader = header.copyOf()
+                        writeUInt32Le(candidateHeader, 76, nativeNonce)
+                        val first = digest.digest(candidateHeader)
+                        val hash = digest.digest(first)
+                        listener.onShareFound(
+                            FoundShare(
+                                work.job.id,
+                                extraNonce2,
+                                work.job.time,
+                                nativeNonce.toUInt().toString(16).padStart(8, '0'),
+                                isAtMostTarget(hash, work.networkTarget),
+                            ),
+                        )
+                    }
+                    nonce = (nonce + workers.toLong() * HASH_BATCH_SIZE) and 0xffff_ffffL
+                    report(localHashes)
+                    localHashes = 0
+                    continue
+                }
                 writeUInt32Le(header, 76, nonce)
                 val first = digest.digest(header)
                 val hash = digest.digest(first)
@@ -165,7 +195,8 @@ class Sha256dEngine(
     )
 
     private companion object {
-        const val HASH_BATCH_SIZE = 2_048L
+        // Larger native batches reduce JNI overhead while still allowing prompt job replacement.
+        const val HASH_BATCH_SIZE = 16_384L
         const val REPORT_INTERVAL_NANOS = 1_000_000_000L
         val DIFF1_TARGET = BigInteger("00000000FFFF0000000000000000000000000000000000000000000000000000", 16)
     }

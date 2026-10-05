@@ -18,7 +18,7 @@ The app includes a **Donate BTC** screen with a copy button. Send BTC only, veri
 
 - Configurable Stratum V1 TCP/TLS connection.
 - `mining.subscribe`, `mining.authorize`, difficulty, job, share, and reconnect handling.
-- CPU SHA-256d reference engine with configurable thread count.
+- NDK/C++ SHA-256d worker with precomputed header midstate and configurable thread count.
 - Foreground service, persistent notification, and partial wake lock for processing with the screen locked.
 - Dashboard with live hashrate, graph, job/share counters, candidates, rewards status, and mining history.
 - Compact **Mining Console** optimized for portrait and landscape.
@@ -103,7 +103,7 @@ Run the JVM test suite with `./gradlew test`. Tests cover thermal-policy behavio
 
 ## Roadmap
 
-- NDK-optimized SHA-256d engine and ARM/NEON benchmarking.
+- ARM/NEON-specific SHA-256d tuning and per-device benchmarking.
 - Full thermal monitoring and automatic throttle/stop policy.
 - Configurable pool presets and endpoint failover.
 - Optional fleet view based on pool worker statistics.

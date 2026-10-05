@@ -63,7 +63,7 @@ class MiningForegroundService : Service() {
     private fun startSession() {
         shouldRun = true
         val profile = ProfileRepository(this).load()
-        runtime.update(running = true, status = "CONNECTING", detail = "Connecting to ${profile.host}:${profile.port}", event = "Mining started")
+        runtime.update(running = true, status = "CONNECTING", detail = "Connecting to ${profile.host}:${profile.port}", startedAtMillis = System.currentTimeMillis(), event = "Mining started")
         startForeground(NOTIFICATION_ID, notification("Connecting to ${profile.host}"))
         wakeLock = getSystemService(PowerManager::class.java)
             .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "$packageName:MiningSession")
@@ -124,7 +124,7 @@ class MiningForegroundService : Service() {
         engine = null
         wakeLock?.let { if (it.isHeld) it.release() }
         wakeLock = null
-        runtime.update(running = false, status = "STOPPED", detail = "Stopped by user")
+        runtime.update(running = false, status = "STOPPED", detail = "Stopped by user", startedAtMillis = 0)
         stopForeground(STOP_FOREGROUND_REMOVE)
         stopSelf()
     }

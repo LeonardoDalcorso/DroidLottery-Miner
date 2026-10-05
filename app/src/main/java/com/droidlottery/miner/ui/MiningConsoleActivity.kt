@@ -54,7 +54,13 @@ class MiningConsoleActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.consoleJobs).text = state.receivedJobs.toString()
         findViewById<TextView>(R.id.consoleAccepted).text = state.acceptedShares.toString()
         findViewById<TextView>(R.id.consoleCandidates).text = state.blockCandidates.toString()
-        findViewById<TextView>(R.id.consolePool).text = "${profile.host}:${profile.port} • ${PerformanceSettings(this).threadCount()} THREADS"
+        findViewById<TextView>(R.id.consolePool).text = "${profile.host}:${profile.port} • ${PerformanceSettings(this).threadCount()} THREADS • RUN ${formatElapsed(state.startedAtMillis, state.running)}"
         findViewById<HashrateChartView>(R.id.consoleChart).submit(runtime.readHashrateHistory())
+    }
+
+    private fun formatElapsed(startedAtMillis: Long, running: Boolean): String {
+        if (!running || startedAtMillis <= 0) return "00:00:00"
+        val seconds = ((System.currentTimeMillis() - startedAtMillis) / 1_000).coerceAtLeast(0)
+        return "%02d:%02d:%02d".format(seconds / 3_600, seconds % 3_600 / 60, seconds % 60)
     }
 }
